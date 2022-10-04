@@ -1,0 +1,22 @@
+# este eh um arquivo de configuracoes
+
+# estas sao configuracoes referente ao banco de dados
+spring:
+  h2:                                                         #tipo de banco de dados
+    console:
+      enabled: true                                           #para ter um console online, para ver as tabelas
+      path: /h2-console                                       #url para acessar o banco e consultar as tabelas
+      console.settings.trace: false                           #configuracoes default
+      spring.h2.console.settings.web-allow-others: false      #configuracoes default
+  datasource:                                                 #eh sobre como acessar a url/banco de dados
+    url: jdbc:h2:mem:testdb                                   #url padrao. jdbc eh a parte do java que trabalha com banco de dados. testdb eh o nome do banco de dados
+    username: sa
+    password:
+    driverClassName: org.h2.Driver                            #driver do banco de dados
+  jpa:                                                        #eh uma abstracao do jdbc
+    show-sql: true                                            #toda vez que nossa aplicacao fizer uma insercao, consulta, interacao, eh pra mostrar no console o sql que vai fazer o comando
+    defer-datasource-initialization: true
+    database-platform: org.hibernate.dialect.H2Dialect        #dialeto do banco de dados h2
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher                     #
